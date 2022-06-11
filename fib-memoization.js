@@ -1,6 +1,6 @@
 
 // General solution
-/**
+/*
                             7
                            / \
                           6   5
@@ -21,11 +21,13 @@
 */
 // Time complexity => O(2^n) ====> Exponential time complexity =>
 // Space complexity => O(n) 
-// const fib = (n) => {
-//   if (n <= 2) return 1;     // Best case 
-//   return fib(n - 1) + fib(n - 2);
-// };
-
+// ----------------------------------------------------------------------------------------
+/*
+    const fib = (n) => {
+        if (n <= 2) return 1;     // Best case 
+        return fib(n - 1) + fib(n - 2);
+    };
+*/
 // ------------------------------------------------------------------------------------------
 
 // Dynamic solution
