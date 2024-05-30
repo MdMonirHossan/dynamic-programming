@@ -1,13 +1,16 @@
+interface CountObject {
+  [key: string]: number;
+}
 class Anagram {
   constructor(private readonly str1: string, private readonly str2: string) {
     this.str1 = str1;
     this.str2 = str2;
   }
 
-  is_valid() {
+  is_valid(): boolean {
     if (this.str1.length !== this.str2.length) return false;
-    let countT = {},
-      countS = {};
+    let countT: CountObject = {},
+      countS: CountObject = {};
 
     /** 1st solution */
     // const sorted_str1 = this.str1.split('').sort().join('')
@@ -31,5 +34,5 @@ class Anagram {
   }
 }
 
-const obj = new Anagram("aaarm", "raaaa");
-console.log(obj.is_valid());
+const anagramObj = new Anagram("aaarm", "raaaa");
+console.log(anagramObj.is_valid());

@@ -1,3 +1,4 @@
+"use strict";
 var Anagram = /** @class */ (function () {
     function Anagram(str1, str2) {
         this.str1 = str1;
@@ -30,5 +31,5 @@ var Anagram = /** @class */ (function () {
     };
     return Anagram;
 }());
-var obj = new Anagram("aaarm", "raaaa");
-console.log(obj.is_valid());
+var anagramObj = new Anagram("aaarm", "raaaa");
+console.log(anagramObj.is_valid());

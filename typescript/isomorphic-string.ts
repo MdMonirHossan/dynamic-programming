@@ -11,22 +11,20 @@ class Isomorphic {
     let is_isomorphic: boolean = false;
 
     for (let i = 0; i < this.str1.length; i++) {
-
-      if(!Object.keys(iso_hash).some(key => key === this.str1[i] )) {
+      if (!Object.keys(iso_hash).some((key) => key === this.str1[i])) {
         iso_hash[this.str1[i]] = this.str2[i];
       }
-      
-      if(iso_hash[this.str1[i]] === this.str2.charAt(i)){
-        is_isomorphic = true
-      }else{
-        is_isomorphic = false
+
+      if (iso_hash[this.str1[i]] === this.str2.charAt(i)) {
+        is_isomorphic = true;
+      } else {
+        is_isomorphic = false;
       }
     }
     console.log(iso_hash);
-    return is_isomorphic
+    return is_isomorphic;
   }
 }
 
-const obj = new Isomorphic("foo", "bar");
-
-console.log(obj.isIsomorphic())
+const isoObj = new Isomorphic("foo", "bar");
+console.log(isoObj.isIsomorphic());

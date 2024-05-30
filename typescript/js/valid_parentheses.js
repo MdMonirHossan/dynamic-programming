@@ -1,3 +1,4 @@
+"use strict";
 var Parenthesis = /** @class */ (function () {
     function Parenthesis(parentheses) {
         this.parentheses = parentheses;
@@ -32,5 +33,5 @@ var Parenthesis = /** @class */ (function () {
     };
     return Parenthesis;
 }());
-var obj = new Parenthesis("{{(({[]}))})");
-console.log(obj.is_valid());
+var parenthesesObj = new Parenthesis("{{(({[]}))})");
+console.log(parenthesesObj.is_valid());

@@ -1,3 +1,4 @@
+"use strict";
 var Isomorphic = /** @class */ (function () {
     function Isomorphic(str1, str2) {
         this.str1 = str1;
@@ -31,5 +32,5 @@ var Isomorphic = /** @class */ (function () {
     };
     return Isomorphic;
 }());
-var obj = new Isomorphic("foo", "bar");
-console.log(obj.isIsomorphic());
+var isoObj = new Isomorphic("foo", "bar");
+console.log(isoObj.isIsomorphic());

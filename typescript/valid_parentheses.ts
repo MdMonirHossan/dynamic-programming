@@ -26,6 +26,6 @@ class Parenthesis {
   }
 }
 
-const obj = new Parenthesis("{{(({[]}))})");
+const parenthesesObj = new Parenthesis("{{(({[]}))})");
 
-console.log(obj.is_valid());
+console.log(parenthesesObj.is_valid());
