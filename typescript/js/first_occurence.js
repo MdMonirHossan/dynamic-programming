@@ -14,9 +14,7 @@ var FirstOccurrence = /** @class */ (function () {
         for (var i = 0; i < this.haystacks.length; i++) {
             index.push(i);
             newStr += this.haystacks[i];
-            console.log(this.haystacks[i], "--", newStr, index);
             if (this.needle === newStr) {
-                console.log("===== ", index[0]);
                 return index[0];
             }
             else if (this.needle.length === newStr.length) {
