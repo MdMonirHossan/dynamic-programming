@@ -1,22 +1,22 @@
 "use strict";
-var Parenthesis = /** @class */ (function () {
-    function Parenthesis(parentheses) {
+class Parenthesis {
+    constructor(parentheses) {
         this.parentheses = parentheses;
         this.parentheses = parentheses;
     }
-    Parenthesis.prototype.is_valid = function () {
+    is_valid() {
         if (this.parentheses === "")
             return false;
-        var stack = [];
-        var is_valid = false;
-        for (var i = 0; i < this.parentheses.length; i++) {
+        let stack = [];
+        let is_valid = false;
+        for (let i = 0; i < this.parentheses.length; i++) {
             if ("({[".includes(this.parentheses[i])) {
                 stack.push(this.parentheses[i]);
             }
             else if (")}]".includes(this.parentheses[i])) {
                 if (stack.length == 0)
                     return false;
-                var concat = stack.pop() + this.parentheses[i];
+                const concat = stack.pop() + this.parentheses[i];
                 if (["()", "{}", "[]"].includes(concat))
                     is_valid = true;
                 else
@@ -30,8 +30,7 @@ var Parenthesis = /** @class */ (function () {
             return false;
         }
         return is_valid;
-    };
-    return Parenthesis;
-}());
-var parenthesesObj = new Parenthesis("{{(({[]}))})");
+    }
+}
+const parenthesesObj = new Parenthesis("{{(({[]}))})");
 console.log(parenthesesObj.is_valid());

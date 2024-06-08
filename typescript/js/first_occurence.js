@@ -1,17 +1,17 @@
 "use strict";
-var FirstOccurrence = /** @class */ (function () {
-    function FirstOccurrence(haystacks, needle) {
+class FirstOccurrence {
+    constructor(haystacks, needle) {
         this.haystacks = haystacks;
         this.needle = needle;
         this.haystacks = haystacks;
         this.needle = needle;
     }
-    FirstOccurrence.prototype.firstOccurrence = function () {
+    firstOccurrence() {
         if (this.haystacks.length < this.needle.length)
             return -1;
-        var newStr = "";
-        var index = [];
-        for (var i = 0; i < this.haystacks.length; i++) {
+        let newStr = "";
+        let index = [];
+        for (let i = 0; i < this.haystacks.length; i++) {
             index.push(i);
             newStr += this.haystacks[i];
             if (this.needle === newStr) {
@@ -23,8 +23,7 @@ var FirstOccurrence = /** @class */ (function () {
             }
         }
         return -1;
-    };
-    return FirstOccurrence;
-}());
-var occurrenceObj = new FirstOccurrence("leetcode", "leeto");
+    }
+}
+const occurrenceObj = new FirstOccurrence("leetcode", "leeto");
 console.log(occurrenceObj.firstOccurrence());

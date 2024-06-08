@@ -1,12 +1,12 @@
 "use strict";
-var Duplicate = /** @class */ (function () {
-    function Duplicate(arr) {
+class Duplicate {
+    constructor(arr) {
         this.arr = arr;
         this.arr = arr;
     }
-    Duplicate.prototype.duplicate = function () {
-        var hashSet = new Set();
-        for (var i = 0; i < this.arr.length; i++) {
+    duplicate() {
+        let hashSet = new Set();
+        for (let i = 0; i < this.arr.length; i++) {
             if (hashSet.has(this.arr[i])) {
                 return true;
             }
@@ -14,8 +14,7 @@ var Duplicate = /** @class */ (function () {
         }
         console.log("--", hashSet);
         return false;
-    };
-    return Duplicate;
-}());
-var duplicateObj = new Duplicate([1, 2, 3]);
+    }
+}
+const duplicateObj = new Duplicate([1, 2, 3]);
 console.log(duplicateObj.duplicate());
