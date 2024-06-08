@@ -12,6 +12,7 @@ class Isomorphic {
 
     for (let i = 0; i < this.str1.length; i++) {
       if (!Object.keys(iso_hash).some((key) => key === this.str1[i])) {
+        if(Object.values(iso_hash).includes(this.str2.charAt(i))) return false
         iso_hash[this.str1[i]] = this.str2[i];
       }
 
@@ -26,5 +27,5 @@ class Isomorphic {
   }
 }
 
-const isoObj = new Isomorphic("foo", "bar");
+const isoObj = new Isomorphic("badc", "baba");
 console.log(isoObj.isIsomorphic());

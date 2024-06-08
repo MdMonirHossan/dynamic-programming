@@ -14,6 +14,8 @@ var Isomorphic = /** @class */ (function () {
         var is_isomorphic = false;
         var _loop_1 = function (i) {
             if (!Object.keys(iso_hash).some(function (key) { return key === _this.str1[i]; })) {
+                if (Object.values(iso_hash).includes(this_1.str2.charAt(i)))
+                    return { value: false };
                 iso_hash[this_1.str1[i]] = this_1.str2[i];
             }
             if (iso_hash[this_1.str1[i]] === this_1.str2.charAt(i)) {
@@ -25,12 +27,14 @@ var Isomorphic = /** @class */ (function () {
         };
         var this_1 = this;
         for (var i = 0; i < this.str1.length; i++) {
-            _loop_1(i);
+            var state_1 = _loop_1(i);
+            if (typeof state_1 === "object")
+                return state_1.value;
         }
         console.log(iso_hash);
         return is_isomorphic;
     };
     return Isomorphic;
 }());
-var isoObj = new Isomorphic("foo", "bar");
+var isoObj = new Isomorphic("badc", "baba");
 console.log(isoObj.isIsomorphic());

@@ -23,5 +23,5 @@ class Subsequence:
         
 
 
-obj = Subsequence('abc', 'angbytc')
+obj = Subsequence('aaaaaa', 'bbaaaa')
 print(obj.subsequence())

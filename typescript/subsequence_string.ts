@@ -9,12 +9,15 @@ class SubsequenceString {
       j: number = 0;
 
     while (i < this.s.length && j < this.t.length) {
-      if (this.s[i] === this.t[j]) i += 1;
-      else j += 1;
+      console.log(i, j);
+      if (this.s[i] === this.t[j]) {
+        i += 1;
+      }
+      j += 1;
     }
     return i === this.s.length ? true : false;
   }
 }
 
-const subsequenceObj = new SubsequenceString("abc", "aghbero");
+const subsequenceObj = new SubsequenceString("aaaaaa", "bbaaaa");
 console.log(subsequenceObj.isSubsequence());
