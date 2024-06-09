@@ -5,7 +5,8 @@ class LastWordLength{
 
     lastLength(){
         let length: number = 0;
-        for(let i=this.s.length -1; i>0; --i){
+        for(let i=this.s.length -1; i>=0; --i){
+            console.log(this.s[i])
             if(this.s[i] !== ' ') length += 1
             if(length > 0 && this.s[i] === ' ') return length
         }
@@ -13,5 +14,5 @@ class LastWordLength{
     }
 }
 
-const lengthObj = new LastWordLength('   Hello    World  hello  ')
+const lengthObj = new LastWordLength('a')
 console.log(lengthObj.lastLength())
