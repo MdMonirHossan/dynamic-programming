@@ -31,7 +31,7 @@ class UniqueEmails:
             local_name, domain = e.split('@')
             local_name = local_name.split('+')[0].replace('.', '')
             print('---- ', local_name)
-            unique_emails.add((local_name, domain))
+            unique_emails.add((local_name + '@', domain))
             print('=====', unique_emails)
         return len(unique_emails)
 

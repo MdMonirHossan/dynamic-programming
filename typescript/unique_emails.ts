@@ -47,7 +47,7 @@ class UniqueEmails {
     let j = 0,
       localName = "";
     for (const e of this.emails) {
-      while (!e[j].includes("@" || "+")) {
+      while (!['@', '+'].includes(e[j])) {
         if (e[j] !== ".") {
           localName += e[j];
         }
@@ -61,13 +61,10 @@ class UniqueEmails {
       j = 0;
       localName = "";
     }
+    console.log('---', uniqueEmails)
     return uniqueEmails.size;
   }
 }
 
-const uniqueEmailsObj = new UniqueEmails([
-  "test.en@leetcode.com",
-  "test.en.my+name@leetcode.com",
-  "my.test+en@leet.code.com",
-]);
-console.log(uniqueEmailsObj.solution());
+const uniqueEmailsObj = new UniqueEmails(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]);
+console.log(uniqueEmailsObj.solution2());
