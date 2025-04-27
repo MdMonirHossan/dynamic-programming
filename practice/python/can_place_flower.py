@@ -12,21 +12,20 @@ Example 2:
 Input: flowerbed = [1,0,0,0,1], n = 2
 Output: false
 '''
+
 class CanPlaceFlower:
-    def __init__(self, flowerbed, num):
-        self.flowerbed = flowerbed
-        self.num = num
+    def __init__(self, flower_bed, n):
+        self.flower_bed = flower_bed
+        self.n = n
 
     def solution(self):
-        self.flowerbed = [0] + self.flowerbed + [0]
+        self.flower_bed = [0] + self.flower_bed + [0]
+        for i in range(1, len(self.flower_bed) - 1):
+            if self.flower_bed[i - 1] == 0 and self.flower_bed[i] == 0 and self.flower_bed[i + 1] == 0:
+                self.flower_bed[i] = 1
+                self.n -= 1
+        return self.n <= 0
 
-        for i in range(1, len(self.flowerbed) - 1):  # ignore first and last index
-            if self.flowerbed[i - 1] == 0 and self.flowerbed[i] == 0 and self.flowerbed[i + 1] == 0:
-                self.flowerbed[i] = 1
-                self.num -= 1
-        
-        return self.num <= 0
-    
 
-can_place_flower_obj = CanPlaceFlower([1, 0, 0, 0, 1], 1)
-print(can_place_flower_obj.solution())
+can_place_flower = CanPlaceFlower([1, 0, 0, 0, 1], 1)
+print(can_place_flower.solution())
