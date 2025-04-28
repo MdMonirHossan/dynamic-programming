@@ -19,8 +19,9 @@ class CanPlaceFlower {
   }
 
   solution() {
-    this.flowerBed = [0, ...this.flowerBed, 0];
-    for (let i = 1; i < this.flowerBed.length - 1; i++) {
+    this.flowerBed = [0, ...this.flowerBed, 0]; // Adding 0's to the 1st & last index of flower bed
+    
+    for (let i = 1; i < this.flowerBed.length - 1; i++) {  // ignore first and last index
       if (
         this.flowerBed[i - 1] === 0 &&
         this.flowerBed[i] === 0 &&

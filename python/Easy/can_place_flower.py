@@ -18,7 +18,7 @@ class CanPlaceFlower:
         self.num = num
 
     def solution(self):
-        self.flowerbed = [0] + self.flowerbed + [0]
+        self.flowerbed = [0] + self.flowerbed + [0] # Adding 0's to the 1st & last index of flower bed
 
         for i in range(1, len(self.flowerbed) - 1):  # ignore first and last index
             if self.flowerbed[i - 1] == 0 and self.flowerbed[i] == 0 and self.flowerbed[i + 1] == 0:
