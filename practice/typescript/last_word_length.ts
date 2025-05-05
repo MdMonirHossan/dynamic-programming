@@ -1,4 +1,4 @@
-'''
+/*
 58. Length of Last Word
 
 Given a string s consisting of words and spaces, return the length of the last word in the string.
@@ -23,21 +23,23 @@ Constraints:
 1 <= s.length <= 104
 s consists of only English letters and spaces ' '.
 There will be at least one word in s.
-'''
-class LastWordLength:
-    def __init__(self, s:str):
-        self.s = s
+*/
 
-    def lastLength(self):
-        # split_str = [str for str in self.s.split(' ') if str != '']
-        # return len(split_str[-1])
-        length = 0
-        for i in range(len(self.s) - 1, -1, -1):
-            if self.s[i] != ' ':
-                length += 1
-            if length > 0 and self.s[i] == ' ':
-                return length
-        return length
+class LastWordLength{
+    constructor(private str:string){
+        this.str = str;
+    }
 
-lengthObj = LastWordLength('   fly me   to   the moon  ')
-print(lengthObj.lastLength())
+    solution(){
+        let length = 0;
+        for(let i=this.str.length-1; i>=0; i--){
+            if(this.str[i] !== " ") length += 1;            
+            if(length > 0 && this.str[i] === " ") return length;
+        }
+        return length;        
+    }
+}
+
+
+const lastWordLength = new LastWordLength('   fly me   to   the moon  ');
+console.log(lastWordLength.solution());

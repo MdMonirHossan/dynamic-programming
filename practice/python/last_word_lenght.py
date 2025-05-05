@@ -24,20 +24,21 @@ Constraints:
 s consists of only English letters and spaces ' '.
 There will be at least one word in s.
 '''
-class LastWordLength:
-    def __init__(self, s:str):
-        self.s = s
 
-    def lastLength(self):
-        # split_str = [str for str in self.s.split(' ') if str != '']
-        # return len(split_str[-1])
+class LastWordLength:
+    def __init__(self, str:str):
+        self.str = str
+
+    def solution(self):
         length = 0
-        for i in range(len(self.s) - 1, -1, -1):
-            if self.s[i] != ' ':
+        for i in range(len(self.str)-1, -1, -1):
+            if self.str[i] != " ":
                 length += 1
-            if length > 0 and self.s[i] == ' ':
+            if length > 0 and self.str[i] == " ":
                 return length
         return length
+        
 
-lengthObj = LastWordLength('   fly me   to   the moon  ')
-print(lengthObj.lastLength())
+
+last_word_length = LastWordLength('   fly me   to   the moon  ')
+print(last_word_length.solution())
