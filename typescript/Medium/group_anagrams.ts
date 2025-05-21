@@ -40,7 +40,7 @@ class GroupAnagrams {
     If there are n words:
     ➡️ Total: O(n * k)
    */
-  anagrams() {
+  solution() {
     let result: ResultObject = {};
     for (let i in this.strings) {
       let count: number[] = Array(26).fill(0);
@@ -50,10 +50,36 @@ class GroupAnagrams {
       result[String(count)] = result[String(count)] || [];
       result[String(count)].push(this.strings[i]);
     }
-    return Object.keys(result).map((key) => result[key]);
+    return Object.values(result);
+  }
+
+  /**
+   * ✅ Time Complexity:
+    For each word:
+    split() → O(k)
+    sort() → O(k log k)
+    join() → O(k)
+    Where k is the length of the word.
+    So per word = O(k log k)
+    If there are n words:
+    ➡️ Total: O(n * k log k)
+   */
+  solution2(){
+    let result: ResultObject ={};
+
+    for(let word of this.strings){
+      const key = word.split('').sort().join('');
+      result[key] = result[key] || [];
+      result[key].push(word);
+    }
+    return Object.values(result);
   }
 }
 
+/**
+    ✅ Use sort().join() for simplicity and small/medium word lengths.
+    ✅ Use count array for better performance when you deal with large datasets or long words.
+ */
 const groupObj = new GroupAnagrams([
   "act",
   "pots",
@@ -62,4 +88,4 @@ const groupObj = new GroupAnagrams([
   "stop",
   "hat",
 ]);
-console.log(groupObj.anagrams());
+console.log(groupObj.solution2());
