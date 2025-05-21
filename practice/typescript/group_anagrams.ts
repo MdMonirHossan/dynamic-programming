@@ -24,29 +24,30 @@ Constraints:
 0 <= strs[i].length <= 100
 strs[i] consists of lowercase English letters.
 */
-interface ResultObject {
-  [key: string]: string[];
+interface AnagramResultObject{
+    [key:string]:string[];
 }
-class GroupAnagrams {
-  constructor(private readonly strings: string[]) {
+class GroupAnagram {
+  constructor(private strings: string[]) {
     this.strings = strings;
   }
 
-  anagrams() {
-    let result: ResultObject = {};
+  solution() {
+    let result: AnagramResultObject = {};
+
     for (let i in this.strings) {
-      let count: number[] = Array(26).fill(0);
-      for (let j in this.strings[i].split("")) {
-        count[this.strings[i].charCodeAt(Number(j)) - "a".charCodeAt(0)] += 1;
+      let count = Array(26).fill(0);
+      for(let j in this.strings[i].split('')){
+        count[this.strings[i].charCodeAt(Number(j)) - 'a'.charCodeAt(0)] += 1;
       }
       result[String(count)] = result[String(count)] || [];
-      result[String(count)].push(this.strings[i]);
+      console.log('result ', result)
+      result[String(count)].push(this.strings[i]); 
     }
-    return Object.keys(result).map((key) => result[key]);
   }
 }
 
-const groupObj = new GroupAnagrams([
+const anagramsObj = new GroupAnagram([
   "act",
   "pots",
   "tops",
@@ -54,4 +55,4 @@ const groupObj = new GroupAnagrams([
   "stop",
   "hat",
 ]);
-console.log(groupObj.anagrams());
+console.log(anagramsObj.solution());
