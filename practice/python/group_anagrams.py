@@ -45,6 +45,25 @@ class GroupAnagrams:
                 count[ord(c) - ord('a')] += 1
             result[tuple(count)].append(string)
         return list(result.values())
+    
+    '''
+     ✅ Time Complexity:
+        For each word:
+        split() → O(k)
+        sort() → O(k log k)
+        join() → O(k)
+        Where k is the length of the word.
+        So per word = O(k log k)
+        If there are n words:
+        ➡️ Total: O(n * k log k)
+    '''
+    def solution_2(self):
+        result = defaultdict(list)
+
+        for word in self.strings:
+            key = ''.join(sorted(word))
+            result[key].append(word)
+        return list(result.values())
 
 group_anagrams_obj = GroupAnagrams(['cat', 'atc', 'bat', 'tab'])
-print(group_anagrams_obj.solution())
+print(group_anagrams_obj.solution_2())
