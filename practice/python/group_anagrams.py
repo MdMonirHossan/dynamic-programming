@@ -28,7 +28,15 @@ from collections import defaultdict
 class GroupAnagrams:
     def __init__(self, strings):
         self.strings = strings
-    
+    '''
+        ✅ Time Complexity:
+        For each word:
+        Count loop → O(k)
+        Convert array to string → O(26) → O(1), since alphabet size is constant
+        So per word = O(k)
+        If there are n words:
+        ➡️ Total: O(n * k)
+    '''
     def solution(self):
         result = defaultdict(list)
         for string in self.strings:

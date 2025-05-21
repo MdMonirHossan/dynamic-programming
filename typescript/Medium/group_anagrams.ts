@@ -31,7 +31,15 @@ class GroupAnagrams {
   constructor(private readonly strings: string[]) {
     this.strings = strings;
   }
-
+  /**
+   * ✅ Time Complexity:
+    For each word:
+    Count loop → O(k)
+    Convert array to string → O(26) → O(1), since alphabet size is constant
+    So per word = O(k)
+    If there are n words:
+    ➡️ Total: O(n * k)
+   */
   anagrams() {
     let result: ResultObject = {};
     for (let i in this.strings) {
