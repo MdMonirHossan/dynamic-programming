@@ -23,14 +23,19 @@ class MajorityElements:
     def __init__(self, arr):
         self.arr = arr
 
+    '''
+     * Boyer-Moore Majority Vote Algorithm
+     * Time Complexity O(n)
+     * Space Complexity O(1)
+    '''
     def solution(self):
         result, count = 0, 0
         for n in self.arr:
             if count == 0:
                 result = n
             count += (1 if result == n else -1)
-        return result
+        return 1 if self.arr.count(result) > len(self.arr) // 2 else -1
 
 
-majority_element_obj = MajorityElements([1, 2, 3, 1, 2, 2])
+majority_element_obj = MajorityElements([1, 2, 3, 1, 2, 1, 1])
 print(majority_element_obj.solution())

@@ -20,6 +20,11 @@ n == nums.length
 Follow-up: Could you solve the problem in linear time and in O(1) space?
 '''
 
+'''
+	* Boyer-Moore Majority Vote Algorithm
+	* Time Complexity O(n)
+	* Space Complexity O(1)
+'''
 def majority_element(nums):
 	res, count = 0, 0
 
@@ -27,7 +32,7 @@ def majority_element(nums):
 		if count == 0:
 			res = n
 		count += (1 if res == n else -1)
-	return res
+	return 1 if nums.count(res) > len(nums) // 2 else -1
 
 
 	# count = {}
