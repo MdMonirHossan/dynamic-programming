@@ -1,3 +1,32 @@
+/**
+  20. Valid Parentheses
+
+  Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+  An input string is valid if:
+  Open brackets must be closed by the same type of brackets.
+  Open brackets must be closed in the correct order.
+  Every close bracket has a corresponding open bracket of the same type.
+
+  Example 1:
+  Input: s = "()"
+  Output: true
+
+  Example 2:
+  Input: s = "()[]{}"
+  Output: true
+
+  Example 3:
+  Input: s = "(]"
+  Output: false
+
+  Example 4:
+  Input: s = "([])"
+  Output: true
+
+  Constraints:
+  1 <= s.length <= 104
+  s consists of parentheses only '()[]{}'.
+*/
 class Parenthesis {
   constructor(private readonly parentheses: string) {
     this.parentheses = parentheses;
@@ -7,17 +36,15 @@ class Parenthesis {
     if (this.parentheses === "") return false;
     let stack: string[] = [];
     let is_valid: boolean = false;
-    for (let i = 0; i < this.parentheses.length; i++) {
-      if ("({[".includes(this.parentheses[i])) {
-        stack.push(this.parentheses[i]);
-      } else if (")}]".includes(this.parentheses[i])) {
-        if (stack.length == 0) return false;
-        const concat = stack.pop() + this.parentheses[i];
+    for (let p of this.parentheses) {
+      if ("({[".includes(p)) {
+        stack.push(p);
+      } else if (")}]".includes(p)) {
+        if (stack.length === 0) return false;
+        const concat: string = stack.pop() + p;
         if (["()", "{}", "[]"].includes(concat)) is_valid = true;
         else return false;
-      } else {
-        return false;
-      }
+      } else return false;
     }
     if (stack.length !== 0) {
       return false;
@@ -26,6 +53,6 @@ class Parenthesis {
   }
 }
 
-const parenthesesObj = new Parenthesis("{{(({[]}))})");
+const parenthesesObj = new Parenthesis("{{(({[]}))}}");
 
 console.log(parenthesesObj.is_valid());
