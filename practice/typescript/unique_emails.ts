@@ -36,11 +36,35 @@ class UniqueEmailCount {
     }
     return uniqueEmails.size;
   }
+
+  solution2() {
+    let uniqueEmails = new Set();
+    let localName: string = "",
+      domainName: string = "",
+      j = 0;
+
+    for (const e of this.emails) {
+      while (!["@", "+"].includes(e[j])) {
+        if (e[j] !== ".") {
+          localName += e[j];
+        }
+        j++;
+      }
+      while (e[j] !== "@") {
+        j++;
+      }
+      domainName = e.slice(j);
+      uniqueEmails.add(localName + domainName);
+      j = 0;
+      localName = "";
+    }
+    return uniqueEmails.size;
+  }
 }
 
 const uniqueEmailCountObj = new UniqueEmailCount([
-  "test.email+alex@leetcode.com",
-  "test.e.mail+bob.cathy@leetcode.com",
-  "testemail+david@lee.tcode.com",
+  "a@leetcode.com",
+  "b@leetcode.com",
+  "c@leetcode.com",
 ]);
-console.log(uniqueEmailCountObj.solution());
+console.log(uniqueEmailCountObj.solution2());
